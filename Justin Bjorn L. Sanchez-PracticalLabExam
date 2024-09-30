@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+//Append new item and make no return
+void append(int arr[], int &size, int new_item) {
+  
+  //Add more space to array
+  int new_arr[size + 1];
+
+  //Get elements from old to new array
+  for (int i = 0; i < size; i++) {
+    new_arr[i] = arr[i];
+  }
+
+  //Add the new_item to array
+  new_arr[size] = new_item;
+
+  //Replace old arr to new arr
+  for (int i = 0; i < size + 1; i++) {
+    arr[i] = new_arr[i];
+  }
+
+  //New size of array
+  size++;
+}
+
+int main() {
+  //Declare original values
+  int numbers[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  int new_item = 11;
+  int size = sizeof(numbers) / sizeof(numbers[0]);
+
+  //Append the new item to the array
+  append(numbers, size, new_item);
+
+  //Print the new array
+  for (int i = 0; i < size; i++) {
+    cout << numbers[i] << " ";
+  }
+  cout << endl;
+
+  return 0;
+}
